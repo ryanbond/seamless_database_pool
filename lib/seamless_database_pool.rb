@@ -1,3 +1,11 @@
+require 'active_support/version'
+if ActiveSupport::VERSION::MAJOR == 3 && ActiveSupport::VERSION::MINOR > 1
+  require 'rails3.2/rewrite_inheritable_attributes.rb'
+else
+  require 'active_support/core_ext/class/inheritable_attributes'
+end
+
+
 require File.join(File.dirname(__FILE__), 'seamless_database_pool', 'connect_timeout.rb')
 require File.join(File.dirname(__FILE__), 'seamless_database_pool', 'connection_statistics.rb')
 require File.join(File.dirname(__FILE__), 'seamless_database_pool', 'controller_filter.rb')
